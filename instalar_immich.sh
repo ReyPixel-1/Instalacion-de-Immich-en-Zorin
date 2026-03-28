@@ -30,7 +30,7 @@ wget -q -O "$HOME/scripts/Mis_iconos_scripts/immich-logo.png" https://raw.github
 # 6. Iniciar el servicio (Docker ahora sí existirá)
 sudo docker compose up -d
 
-# 7. Crear Lanzador Desktop (Rutas universales)
+# 7. Crear Lanzador Desktop
 mkdir -p "$HOME/.local/share/applications/mis apps"
 cat <<EOF > "$HOME/.local/share/applications/mis apps/immich.desktop"
 [Desktop Entry]
@@ -45,6 +45,7 @@ EOF
 
 # 8. Permisos adicionales (Opcional: permite usar docker sin sudo en el futuro)
 sudo usermod -aG docker $USER
+sudo chmod 666 /var/run/docker.sock
 
 echo "--------------------------------------------------------"
 echo "¡Instalación completada!"
